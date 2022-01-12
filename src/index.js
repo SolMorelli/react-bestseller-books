@@ -42,6 +42,7 @@ const Booklist = () => {
       })}
     </section>
   )
+}
 
 // The Book component uses "props" as a placeholder object that contains the values passed in the parent component
 const Book = ({ img, title, author, description }) => {
