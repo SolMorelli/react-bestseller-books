@@ -29,61 +29,22 @@ const Header = () => {
 const Booklist = () => {
   return (
     <section className='booklist'>
-      <Book
-        img={bookInfo[0].img} // values passed to the Book component
-        title={bookInfo[0].title}
-        author={bookInfo[0].author.toUpperCase()} // for some reason, toUpperCase() breaks the code if included in Book, so I'm putting it here
-        description={bookInfo[0].description}
-      />
-      <Book
-        img={bookInfo[1].img}
-        title={bookInfo[1].title}
-        author={bookInfo[1].author.toUpperCase()}
-        description={bookInfo[1].description}
-      />
-      <Book
-        img={bookInfo[2].img}
-        title={bookInfo[2].title}
-        author={bookInfo[2].author.toUpperCase()}
-        description={bookInfo[2].description}
-      >
-        <small style={{ color: 'red', display: 'block', marginTop: '1rem' }}>
-          Out of stock
-        </small>
-      </Book>
-      <Book
-        img={bookInfo[3].img}
-        title={bookInfo[3].title}
-        author={bookInfo[3].author.toUpperCase()}
-        description={bookInfo[3].description}
-      />
-      <Book
-        img={bookInfo[4].img}
-        title={bookInfo[4].title}
-        author={bookInfo[4].author.toUpperCase()}
-        description={bookInfo[4].description}
-      />
-      <Book
-        img={bookInfo[5].img}
-        title={bookInfo[5].title}
-        author={bookInfo[5].author.toUpperCase()}
-        description={bookInfo[5].description}
-      />
+      {books.map((book) => {
+        const { img, title, author, description } = book
+        return (
+          <Book
+            img={img} // values passed to the Book component
+            title={title}
+            author={author.toUpperCase()} // for some reason, toUpperCase() breaks the code if included in Book, so I'm putting it here
+            description={description}
+          />
+        )
+      })}
     </section>
   )
-}
 
 // The Book component uses "props" as a placeholder object that contains the values passed in the parent component
-const Book = ({ img, title, author, description, children }) => {
-  /* 
-    above is an example of object destructuring to avoid repeating "props" when accessing img, title, author or description
-    
-    another way to do this using an extra line of code:
-      const Book = (props) => {
-        const { img, title, author, description } = props
-        ...
-      }
-  */
+const Book = ({ img, title, author, description }) => {
   return (
     <article>
       <img
@@ -91,18 +52,17 @@ const Book = ({ img, title, author, description, children }) => {
         src={img}
         alt=''
       />
-      {children}
       <div className='book-header'>
         <h3>{title}</h3>
         <h4>{author}</h4>
       </div>
       <p>{description}</p>
     </article>
-  ) // children is being used to reference the <small> element
+  )
 }
 
-// Book info - array of objects, each of which contains information on the books to be displayed
-const bookInfo = [
+// array of objects, each of which contains information on the books to be displayed
+const books = [
   {
     title: 'My Little Golden Book About Betty White',
     author: 'Deborah Hopkinson',
