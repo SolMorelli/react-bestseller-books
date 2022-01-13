@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import './index.css'
 
-// Our entire app is returned by this function
 function App() {
   return (
     <main>
@@ -12,7 +11,6 @@ function App() {
   )
 }
 
-// Header component
 const Header = () => {
   return (
     <header>
@@ -25,34 +23,21 @@ const Header = () => {
   )
 }
 
-// The Booklist component makes use of the Book component, and passes values to it
 const Booklist = () => {
   return (
     <section className='booklist'>
       {books.map((book) => {
         const { img, title, author, description } = book
-        return (
-          <Book
-            img={img} // values passed to the Book component
-            title={title}
-            author={author.toUpperCase()} // for some reason, toUpperCase() breaks the code if included in Book, so I'm putting it here
-            description={description}
-          />
-        )
+        return <Book book={book} /> // passing the whole book as a prop
       })}
     </section>
   )
 }
 
-// The Book component uses "props" as a placeholder object that contains the values passed in the parent component
 const Book = ({ img, title, author, description }) => {
   return (
     <article>
-      <img
-        style={{ width: '350px' }} // Inline CSS through a javascript object
-        src={img}
-        alt=''
-      />
+      <img style={{ width: '350px' }} src={img} alt='' />
       <div className='book-header'>
         <h3>{title}</h3>
         <h4>{author}</h4>
@@ -62,7 +47,6 @@ const Book = ({ img, title, author, description }) => {
   )
 }
 
-// array of objects, each of which contains information on the books to be displayed
 const books = [
   {
     title: 'My Little Golden Book About Betty White',
