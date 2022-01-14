@@ -28,14 +28,14 @@ const Booklist = () => {
     <section className='booklist'>
       {books.map((book) => {
         const { img, title, author, description } = book
-        return <Book id={Book.id} book={book} /> // passing the whole book as a prop and the ID separately
+        return <Book id={Book.id} {...book} /> // passing the book object as props through the spread operator
       })}
     </section>
   )
 }
 
-const Book = (props) => {
-  const { img, title, author, description } = props.book
+const Book = (img, title, author, description) => {
+  // defractoring book
   return (
     <article>
       <img style={{ width: '350px' }} src={img} alt='' />
