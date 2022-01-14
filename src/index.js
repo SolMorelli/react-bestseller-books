@@ -28,13 +28,14 @@ const Booklist = () => {
     <section className='booklist'>
       {books.map((book) => {
         const { img, title, author, description } = book
-        return <Book book={book} /> // passing the whole book as a prop
+        return <Book id={Book.id} book={book} /> // passing the whole book as a prop and the ID separately
       })}
     </section>
   )
 }
 
-const Book = ({ img, title, author, description }) => {
+const Book = (props) => {
+  const { img, title, author, description } = props.book
   return (
     <article>
       <img style={{ width: '350px' }} src={img} alt='' />
@@ -49,6 +50,7 @@ const Book = ({ img, title, author, description }) => {
 
 const books = [
   {
+    id: 1,
     title: 'My Little Golden Book About Betty White',
     author: 'Deborah Hopkinson',
     description:
@@ -56,6 +58,7 @@ const books = [
     img: 'https://images-na.ssl-images-amazon.com/images/I/81gtzoeueoS._AC_UL604_SR604,400_.jpg',
   },
   {
+    id: 2,
     title: 'Who Are Your People?',
     author: 'Bakari Sellers',
     description:
@@ -63,6 +66,7 @@ const books = [
     img: 'https://images-na.ssl-images-amazon.com/images/I/71zK1CMRFTL._AC_UL604_SR604,400_.jpg',
   },
   {
+    id: 3,
     title: 'I Love You to the Moon and Back',
     author: 'Amelia Hepworth',
     description:
@@ -70,6 +74,7 @@ const books = [
     img: 'https://images-na.ssl-images-amazon.com/images/I/8144Vic9C5L._AC_UL604_SR604,400_.jpg',
   },
   {
+    id: 4,
     title: 'The Very Hungry Caterpillar',
     author: 'Eric Carle',
     description:
@@ -77,6 +82,7 @@ const books = [
     img: 'https://images-na.ssl-images-amazon.com/images/I/91vnzZO5yPL._AC_UL604_SR604,400_.jpg',
   },
   {
+    id: 5,
     title: "Little Blue Truck's Valentine'",
     author: 'Alice Schertle',
     description:
@@ -84,6 +90,7 @@ const books = [
     img: 'https://images-na.ssl-images-amazon.com/images/I/51SSq9F8oPL._SY455_BO1,204,203,200_.jpg',
   },
   {
+    id: 6,
     title: 'The Wonderful Things You Will Be',
     author: 'Emily Winfield Martin',
     description:
