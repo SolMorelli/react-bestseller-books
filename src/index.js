@@ -28,7 +28,7 @@ const Booklist = () => {
     <section className='booklist'>
       {books.map((book) => {
         const { img, title, author, description } = book
-        return <Book id={Book.id} book={book} /> // passing the whole book as a prop and the ID separately
+        return <Book id={book.id} book={book} /> // passing the whole book as a prop and the ID separately
       })}
     </section>
   )
