@@ -27,7 +27,7 @@ const Booklist = () => {
   return (
     <section className='booklist'>
       {books.map((book) => {
-        return <Book key={book.id} {...book}></Book> // passing the book object as props through the spread operator
+        return <Book key={book.id} {...book} /> // passing the book object as props through the spread operator
       })}
     </section>
   )
