@@ -9,6 +9,12 @@
 
 export const Book = ({ img, title, author, description }) => {
   // defractoring book
+
+  // click Handler
+  const clickHandler = () => {
+    alert('title')
+  }
+
   return (
     <article>
       <img style={{ width: '350px' }} src={img} alt='' />
@@ -17,6 +23,7 @@ export const Book = ({ img, title, author, description }) => {
         <h4>{author}</h4>
       </div>
       <p>{description}</p>
+      <button type="button" onClick={clickHandler()}>See title</button>
     </article>
   )
 }
