@@ -1,4 +1,14 @@
-const data = [
+/*
+    This file makes use of the named export. 
+    It can only be used once in the same js file.
+    We don't need to use its exact name when imported, we can change
+    the name in the file we use it because we're only exporting one
+    thing at a time.
+    The result will look like this: import { Book } from './Book'
+                                                ^ exact name in curly braces
+*/
+
+const books = [
   {
     id: 1,
     title: 'My Little Golden Book About Betty White',

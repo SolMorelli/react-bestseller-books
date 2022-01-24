@@ -5,8 +5,10 @@ import ReactDom from 'react-dom'
 import './index.css'
 
 // JS
+// Named import/export
 import { Book } from './Book' // We need to use curly braces and the exact name we gave the component
-import books from './components' // We can change the name of the list as we import it
+// Import
+import books from './books' // We can change the name of the list as we import it
 
 function App() {
   return (
@@ -21,8 +23,9 @@ const Header = () => {
   return (
     <header>
       <h1>Best sellers of Amazon</h1>
+      {/* inline event */}
       <h2>
-        But not <b>all</b> of them, I just don't have that kinda time right
+        But not <b onMouseOver={() => {alert("You found a secret!")}}>all</b> of them, I just don't have that kinda time right
         now...
       </h2>
     </header>

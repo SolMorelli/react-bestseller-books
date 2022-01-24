@@ -37,6 +37,7 @@ h2 {
 
 h2 b {
   color: var(--se-color);
+  cursor: default;
 }
 
 h3 {
@@ -75,4 +76,11 @@ header {
   .booklist {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+button {
+  padding: .25rem 1rem;
+  margin: 1rem 0;
+  color: black;
+  font-weight: bold;
 }

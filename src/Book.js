@@ -7,23 +7,42 @@
                                                 ^ exact name in curly braces
 */
 
+// CSS
+import './index.css'
+
+// click Handler
+const clickHandler = (title) => {
+  alert(title)
+}
+
+// defractoring book
 export const Book = ({ img, title, author, description }) => {
-  // defractoring book
-
-  // click Handler
-  const clickHandler = () => {
-    alert('title')
-  }
-
   return (
     <article>
       <img style={{ width: '350px' }} src={img} alt='' />
-      <div className='book-header'>
+      <div className='Book-header'>
         <h3>{title}</h3>
         <h4>{author}</h4>
       </div>
       <p>{description}</p>
-      <button type="button" onClick={clickHandler()}>See title</button>
+      <button type="button" onClick={() => clickHandler(title)}>See title</button>
     </article>
   )
 }
+
+/* 
+In order to pass parameters to 
+a function with the onClick 
+property, you'll have to use
+an arrow function. If you don't,
+the function will run as soon
+as you start the program.
+
+Example (line 25):
+
+onClick={() => clickHandler(title)}
+
+Remember you can use onClick on 
+any element! It's not good 
+practice though.
+*/
